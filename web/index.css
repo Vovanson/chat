@@ -1,0 +1,18 @@
+
+body{
+    background-color: beige;
+}
+#vhod{
+    text-align: center;
+    width: 300px;
+    border-style: solid;
+    border-width: 30px;
+    border-color: blanchedalmond;
+    margin: 10em;
+    
+    outline-style: solid;
+    outline-width: 1px;
+    position: relative ;
+    background-color: blanchedalmond;
+
+}

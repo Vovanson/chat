@@ -7,16 +7,34 @@ and open the template in the editor.
 <html>
     <head>
         <title>Entrance to the chat</title>
+        <link type="text/css" rel="stylesheet" href="index.css"/>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     </head>
     <body>
-        
-        <form action="registration.html" method="POST">
-            
-          <input type="submit"  value="РЕГИСТРАЦИЯ" />  
-        </form>
-        
-       
+
+        <h4> Для входа в чат введите свой ник и пароль или зарегистрируйтесь.</h4>
+
+        <div id="vhod">
+            <form  action="registration.html" method="POST">
+                <input id="reg" type="submit"  value="РЕГИСТРАЦИЯ" />  
+                <br/>
+                <br/>
+            </form >
+            <form  action="chat.jsp" method="POST">
+                <h4>                             
+                    <label for="text">Ник:&nbsp &nbsp &nbsp </label>
+                    <input type="text" name="nic"/>
+                    <br/>
+                    <br/>
+                    <label for="text">Пароль:</label>
+                    <input type="text" name="password"/>
+                    <br/>
+                    <br/>
+                    <input id="chat" type="submit"  value="Вход" /> 
+                </h4>
+            </form >
+        </div>
     </body>
 </html>
