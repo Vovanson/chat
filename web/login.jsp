@@ -1,5 +1,6 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
@@ -14,27 +15,27 @@ and open the template in the editor.
     </head>
     <body>
 
-        <h4> Зайдите под своим логином или зарегистрируйтесь</h4>
+        <h4> Go to your login or register</h4>
 
         <div id="vhod">
             <form  action="registration.html" method="POST">
-                <input id="reg" type="submit"  value="РЕГИСТРАЦИЯ" />  
+                <input id="reg" type="submit"  value="REGISTRATION" />  
                 <br/>
                 <br/>
             </form >
             <form  name ="LogForm" action="controler" method="POST">
                 <input type = "hidden" name ="command" value ="login"/>
                 <h4>                             
-                    <label for="text">Логин:&nbsp  </label>
+                    <label for="text">Login:&nbsp &nbsp &nbsp</label>
                     <input type="text" name="nic"/>
                     <br/>
                     <br/>
-                    <label for="text">Пароль:</label>
-                    <input type="text" name="password"/>
+                    <label for="text">Password:</label>
+                    <input type="password" name="password"/>
                     <br/>
                     <br/>
-                    <input id="chat" type="submit"  value="Вход" /> 
-                    <br/>
+                    <input id="chat" type="submit"  value="Entrance" /> 
+                    <br/> 
                 </h4>
                 <p> ${errorLog_Pas} </p>
             </form >

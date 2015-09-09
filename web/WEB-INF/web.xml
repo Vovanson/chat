@@ -6,7 +6,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>CheckLog</servlet-name>
-        <url-pattern>/CheckLog</url-pattern>
+        <url-pattern>/controler</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

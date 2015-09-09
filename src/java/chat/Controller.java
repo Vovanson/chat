@@ -11,14 +11,22 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.RequestDispatcher;
+
+import chat.ClassCheck;
 
 public class Controller extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String action = request.getParameter("nic");
+       // String action2 = request.getParameter("password");
+         String user= action ;
+        String page = ClassCheck.check(request);
+             
+       RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
+       dispatcher.forward(request, response);
        
-        String action = request.getParameter("command");
-     
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
