@@ -6,25 +6,34 @@
 package chat;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.RequestDispatcher;
+import javax.servlet.http.HttpSession;
 
-public class ClassCheck {
-
+import chat.CreateSession;
+public class ClassCheck implements ActionComand {
+   
     private static String login = "Vovan";
     private static String password = "qwe123";
 
-    static String check(HttpServletRequest request) {
+    @Override
+    public String execute(HttpServletRequest request) {
         String page = null;
+       
         String actionNic = request.getParameter("nic");
         String actionPas = request.getParameter("password");
-        if (login.equals(actionNic) && password.equals(actionPas)) {
-            request.setAttribute("user",actionNic );
+        //if (login.equals(actionNic) && password.equals(actionPas)) 
+        if (true)
+        {
+            request.setAttribute("user", actionNic);
             page = "/chat.jsp";
+            
+            CreateSession session = new CreateSession();
+            session.create(request,actionNic);
+            
         } else {
             page = "/login.jsp";
             request.setAttribute("errorLog_Pas", "Not login and passvord");
         }
-        
+
         return page;
     }
 

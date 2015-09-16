@@ -13,16 +13,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.RequestDispatcher;
 
+import chat.ActionFactory;
 import chat.ClassCheck;
 
 public class Controller extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String action = request.getParameter("nic");
-       // String action2 = request.getParameter("password");
-         String user= action ;
-        String page = ClassCheck.check(request);
+              
+         
+         ActionFactory client = new ActionFactory();
+         ActionComand command = client.defineComand(request);
+         
+        String page = command.execute(request);
              
        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
        dispatcher.forward(request, response);
