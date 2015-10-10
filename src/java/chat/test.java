@@ -4,44 +4,60 @@
  * and open the template in the editor.
  */
 package chat;
-import java.io.*;
-import javax.servlet.*;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.RequestDispatcher;
+import java.util.ArrayList;
 
-import chat.ActionFactory;
-import chat.ClassCheck;
+import chat.ChatMessege;
+/**
+ *
+ * @author вов
+ */
+@WebServlet(name = "test", urlPatterns = {"/test"})
+public class test extends HttpServlet {
 
-
-public class Controller extends HttpServlet {
-      
-
-    
-    
-    
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-          
-         
-         ActionFactory client = new ActionFactory();
-         ActionComand command = client.defineComand(request,response);
+       //Integer data=(Integer)request.getAttribute("reg");
+        
+        
+      // data++;
+        
+        ArrayList<String> messege=ChatMessege.getMessege();
+        String data ="HUIYLO2";
+        System.out.println(data);
+        
    
-        String page = command.execute(request,response);
-        System.out.println(page);
-       
-       
-
-   
-      RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
-     dispatcher.forward(request, response);
-      
-                
+    
+     ////   if (counter == null) {
+    //  request.setAttribute("counter", 1);
+     //   } 
+     // else {
+     //    counter++;
+       //   request.setAttribute("counter", "1111");
+  //  }
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        
+        
+        for(String s:messege){
+            out.println(s);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -5,16 +5,35 @@
  */
 package chat;
 
+import java.util.HashSet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
+import java.util.ArrayList;
 public class CreateSession {
+    HashSet<HttpSession > ollSession = new HashSet<HttpSession >(); 
+    public HttpSession create(HttpServletRequest request,String nic){
+      
+        
+    HttpSession session = request.getSession();
      
-    public void create(HttpServletRequest request,String nic){
-    HttpSession session = request.getSession(true);
-    if(session.isNew()){System.out.println("NEW");}
-    System.out.println("NOT NEW");
+    
+    
+         System.out.println("ID --"+session.getId());
+         
+          
+      
+   
         session.setAttribute("nic", nic);
+       // ollSession.add(session);
+       // System.out.println("new session -size"+ollSession.size());
+         //System.out.println(session.getAttribute("nic"));
+        
+       // for(HttpSession ses:ollSession){
+            
+          //  System.out.println(ses.getAttribute("nic"));
+     // }
+        
+        return session;
        
     }
     

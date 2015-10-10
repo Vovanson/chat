@@ -6,18 +6,14 @@
 package chat;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import chat.ActionComand;
 
 public class ActionFactory {
-    public ActionComand defineComand(HttpServletRequest request){
-     String action = request.getParameter("command");
-     
-
-        System.out.println("action - "+action);  
-       
-   CommandEnum currentEnum = CommandEnum.valueOf(action);
-   System.out.println("currentEnum - "+currentEnum);  
-   ActionComand current = currentEnum.getCurrentComand();
+    public ActionComand defineComand(HttpServletRequest request,HttpServletResponse response){
+    String action = request.getParameter("command");
+    CommandEnum currentEnum = CommandEnum.valueOf(action);
+    ActionComand current = currentEnum.getCurrentComand();
     return current;
     }
 

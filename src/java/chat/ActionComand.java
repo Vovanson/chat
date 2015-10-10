@@ -5,12 +5,12 @@
  */
 package chat;
 import javax.servlet.http.HttpServletRequest;
-
+import javax.servlet.http.HttpServletResponse;
 /**
  *
  * @author вов
  */
 public interface ActionComand {
-    String execute(HttpServletRequest request);
+    String execute(HttpServletRequest request,HttpServletResponse response);
     
 }

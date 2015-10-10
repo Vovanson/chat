@@ -4,20 +4,26 @@
  * and open the template in the editor.
  */
 package chat;
-
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import  java.util.HashSet;
+import java.util.ArrayList;
+
 
 import chat.CreateSession;
 public class ClassCheck implements ActionComand {
+    
    
+   public static HashSet<HttpSession > ollSession = new HashSet<HttpSession >(); 
     private static String login = "Vovan";
     private static String password = "qwe123";
-
+    
+   HashSet<String> online=new HashSet<String>();
     @Override
-    public String execute(HttpServletRequest request) {
+    public String execute(HttpServletRequest request,HttpServletResponse response) {
         String page = null;
-       
+      
         String actionNic = request.getParameter("nic");
         String actionPas = request.getParameter("password");
         //if (login.equals(actionNic) && password.equals(actionPas)) 
@@ -25,9 +31,23 @@ public class ClassCheck implements ActionComand {
         {
             request.setAttribute("user", actionNic);
             page = "/chat.jsp";
-            
+            online.add(actionNic);
+           
             CreateSession session = new CreateSession();
-            session.create(request,actionNic);
+           HttpSession sess =  session.create(request,actionNic);
+           sess.setAttribute("online", online);
+            sess.setAttribute("test", ollSession);
+           ollSession.add(sess);
+          sess.getServletContext().getRequestDispatcher("/chat.jsp");
+          
+          
+          
+            System.out.println("ollSession size-- "+ollSession.size());
+              //for(HttpSession ses:ollSession){
+            
+           // System.out.println(ses.getAttribute("nic"));
+     // }
+            
             
         } else {
             page = "/login.jsp";
@@ -36,5 +56,6 @@ public class ClassCheck implements ActionComand {
 
         return page;
     }
+
 
 }

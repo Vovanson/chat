@@ -18,7 +18,7 @@ and open the template in the editor.
         <h4> Go to your login or register</h4>
 
         <div id="vhod">
-            <form  action="registration.html" method="POST">
+            <form  action="registration.jsp" method="POST">
                 <input id="reg" type="submit"  value="REGISTRATION" />  
                 <br/>
                 <br/>
