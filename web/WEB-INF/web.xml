@@ -4,9 +4,17 @@
         <servlet-name>CheckLog</servlet-name>
         <servlet-class>chat.Controller</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Chat2</servlet-name>
+        <servlet-class>Chat2</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CheckLog</servlet-name>
         <url-pattern>/controler</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Chat2</servlet-name>
+        <url-pattern>/Chat2</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

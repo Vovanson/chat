@@ -15,13 +15,20 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 
 import chat.ChatMessege;
+import java.util.Enumeration;
+import chat.ClassCheck;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashSet;
+
 /**
  *
  * @author вов
  */
-@WebServlet(name = "test", urlPatterns = {"/test"})
-public class test extends HttpServlet {
+@WebServlet(name = "chat", urlPatterns = {"/chat"})
+public class Chat extends HttpServlet {
 
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -34,14 +41,12 @@ public class test extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        //Integer data=(Integer)request.getAttribute("reg");
-        
+        //System.out.println("Vxod chat");
         
       // data++;
         
         ArrayList<String> messege=ChatMessege.getMessege();
-        String data ="HUIYLO2";
-        System.out.println(data);
-        
+       HashSet<String> online =ClassCheck.online;
    
     
      ////   if (counter == null) {
@@ -54,9 +59,40 @@ public class test extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
+    
+     String param=request.getParameter("param");
+       // System.out.println("param ="+param);
         
+        if(param.equals("3")){
+           Date d = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("dd.MM hh:mm");
+         
+            String nic =  request.getParameter("nic");
+            
+         String param2=request.getParameter("param2");  
+        String paramNic=request.getParameter("paramNic");  
+        // System.out.println("vxod ="+param); 
+          //out.println(param2+" "+paramNic);
+          ChatMessege.setMessege(format.format(d)+" "+paramNic+": "+param2+"<br/>");
+          for(String s:messege){
+            out.println(s);
+        }
+          
+        }
+        
+        if(param.equals("online")){
+       // System.out.println("vxod2 ="+param); 
+       for(String s:online){
+            out.println(s);
+              out.println(',');
+        }
+        }
+        
+       if(param.equals("messege")){
+        //   System.out.println("vxod1 ="+param);  
         for(String s:messege){
             out.println(s);
+        }
         }
     }
 

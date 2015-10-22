@@ -19,12 +19,13 @@ public class ClassCheck implements ActionComand {
     private static String login = "Vovan";
     private static String password = "qwe123";
     
-   HashSet<String> online=new HashSet<String>();
+   static HashSet<String> online=new HashSet<String>();
     @Override
     public String execute(HttpServletRequest request,HttpServletResponse response) {
         String page = null;
       
         String actionNic = request.getParameter("nic");
+        
         String actionPas = request.getParameter("password");
         //if (login.equals(actionNic) && password.equals(actionPas)) 
         if (true)
